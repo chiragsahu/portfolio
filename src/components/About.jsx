@@ -68,7 +68,7 @@ const About = () => {
                     mb: 3,
                   }}
                 >
-                  Senior Flutter Developer
+                  Fullstack App Developer
                 </Typography>
               </motion.div>
               <motion.div
@@ -85,10 +85,11 @@ const About = () => {
                     lineHeight: 1.8,
                   }}
                 >
-                  I am a Senior Flutter Developer with 4.5+ years of experience
-                  in mobile app development. Currently working at Talentas
-                  Technology, HYD. I specialize in developing scalable,
-                  cross-platform applications using Flutter and Dart.
+                  I am a Fullstack App Developer with 5+ years of experience in
+                  mobile app, Web and Backend development. Currently working at
+                  Microgenesis Cadsoft, Hyderabad. I specialize in developing
+                  scalable, cross-platform applications using Flutter, Nodejs
+                  and React.
                 </Typography>
               </motion.div>
               <motion.div
