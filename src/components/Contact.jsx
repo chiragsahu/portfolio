@@ -8,7 +8,7 @@ import {
   IconButton,
 } from "@mui/material";
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaTwitter, FaWhatsapp } from "react-icons/fa";
 import EmailIcon from "@mui/icons-material/Email";
 
 const Contact = () => {
@@ -84,7 +84,7 @@ const Contact = () => {
                 question or just want to say hi, I'll try my best to get back to
                 you!
               </Typography>
-              <Box sx={{ mb: 4 }}>
+              <Box sx={{ mb: 4, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 1 }}>
                 <Button
                   startIcon={<EmailIcon />}
                   href="mailto:chiragsahu2020@gmail.com"
@@ -96,6 +96,20 @@ const Contact = () => {
                   }}
                 >
                   chiragsahu2020@gmail.com
+                </Button>
+                <Button
+                  startIcon={<FaWhatsapp />}
+                  href="https://wa.me/917974475467"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{
+                    color: "primary.main",
+                    "&:hover": {
+                      bgcolor: "rgba(100, 255, 218, 0.1)",
+                    },
+                  }}
+                >
+                  +91 7974475467
                 </Button>
               </Box>
               <Box sx={{ display: "flex", gap: 2 }}>
