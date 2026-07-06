@@ -62,7 +62,7 @@ const Hero = () => {
                   color: 'text.secondary',
                 }}
               >
-                I build amazing mobile apps with Flutter
+                I build secure, scalable mobile ecosystems and robust web applications.
               </Typography>
             </motion.div>
             <motion.div
@@ -79,8 +79,7 @@ const Hero = () => {
                   color: 'text.secondary',
                 }}
               >
-                I'm a Flutter developer specializing in building exceptional mobile applications.
-                Currently, I'm focused on creating seamless, user-friendly cross-platform experiences.
+                Fullstack App Developer with over 5 years of expertise in Flutter, MERN, and Python. Specialist in end-to-end product delivery, including RESTful API development and cloud deployment.
               </Typography>
             </motion.div>
             <motion.div

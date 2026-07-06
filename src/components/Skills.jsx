@@ -1,11 +1,10 @@
-import React from "react";
-import { Box, Container, Typography, Grid, Paper } from "@mui/material";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { Box, Container, Typography, Grid, Paper, Tabs, Tab } from "@mui/material";
+import { motion, AnimatePresence } from "framer-motion";
 
 // Material Design Icons (react-icons/md)
 import {
   MdAndroid,
-  MdHtml,
   MdStorage,
   MdDevices,
   MdOutlineJavascript,
@@ -19,25 +18,44 @@ import {
 export const WorkHistory = () => {
   const workExperience = [
     {
-      company: "Arth Tech Globals",
-      subtitle: "(Payroll via Microgenesis Cadsoft Pvt. Ltd.) Contract",
-      position: "FlutterFlow & Node.js Developer",
-      duration: "Sep 2025 – Present",
+      company: "Microgenesis Cadsoft Pvt. Ltd.",
+      subtitle: "Hyderabad, TG",
+      position: "Fullstack App Developer",
+      duration: "Sep 2025 – Jan 2026",
       achievements: [
-        "Developed and maintained multiple cross-platform applications using FlutterFlow, handling the complete lifecycle from UI design to App Store deployment.",
-        "Designed and implemented backend Node.js API routes and cron jobs to meet client-specific automation and synchronization requirements.",
-        "Created Python scripts to automate business processes and perform large-scale data migration with accuracy and speed.",
-        "Enhanced app performance and reduced manual effort by nearly 40% through backend and automation optimizations.",
+        "Designed and Developed backend Node.js API routes and cron jobs using MERN Stack to meet client-specific automation and synchronization requirements.",
+        "Maintained multiple cross-platform applications using FlutterFlow, implemented CI/CD Pipelines handling the complete lifecycle from UI design to App Store deployment.",
+        "Containerized microservices using Docker and developed high-performance RESTful APIs using FastAPI to streamline data processing workflows.",
       ],
     },
     {
       company: "Talentas Technology",
-      position: "Flutter Developer",
-      duration: "Jun 2020 – Dec 2020",
+      subtitle: "Hyderabad, TG",
+      position: "Fullstack Developer",
+      duration: "Feb 2024 – May 2025",
       achievements: [
-        "Developed responsive Flutter applications for iOS and Android platforms.",
-        "Integrated REST APIs and Firebase services for real-time data management.",
-        "Implemented UI/UX designs with Framer Motion animations and Material Design principles.",
+        "Engineered robust, secure back-end architectures using Django and Node.js to manage relational databases and deliver high-throughput RESTful APIs for client applications.",
+        "Engineered compliant, geo-restricted features and Firebase GA4 e-commerce tracking modules to analyze $2M in transaction volume, delivering data-driven insights that optimized marketing spend for 10k MAU.",
+      ],
+    },
+    {
+      company: "Xsilica Software Solutions Pvt. Ltd.",
+      subtitle: "Hyderabad, TG",
+      position: "Flutter Developer",
+      duration: "Apr 2023 – Jan 2024",
+      achievements: [
+        "Led the development of core modules for the PayG app, improving customer on-boarding efficiency through the seamless integration of Video KYC.",
+        "Collaborated with cross-functional teams to deliver customized solutions, enhancing booking and ticketing functionality, which handled thousands of transactions monthly.",
+      ],
+    },
+    {
+      company: "Techphant Consulting Group",
+      subtitle: "Raipur, CG",
+      position: "Fullstack Developer",
+      duration: "Jan 2021 – Mar 2023",
+      achievements: [
+        "Built and maintained MDM solution for retailers to secure EMIs from customers on Android phones and Smart TVs.",
+        "Scaled a real-time MDM monitoring system to support 100,000+ concurrent devices using optimized push notification payloads and efficient background service management.",
       ],
     },
   ];
@@ -278,31 +296,47 @@ export const WorkHistory = () => {
 };
 
 const skills = {
-  Languages: [
-    { name: "Dart", icon: MdDeveloperMode, level: 95 },
-    { name: "JavaScript", icon: MdOutlineJavascript, level: 80 },
-    { name: "Python", icon: MdOutlineJavascript, level: 80 },
-    { name: "Kotlin", icon: MdOutlineJavascript, level: 80 },
-    { name: "HTML/CSS", icon: MdHtml, level: 70 },
+  "AI Tools": [
+    { name: "Langchain", icon: MdBuild, level: 70 },
+    { name: "LangGraph", icon: MdBuild, level: 70 }
   ],
-  Frameworks: [
-    { name: "Flutter", icon: MdDevices, level: 95 },
-    { name: "Node.js", icon: MdBuild, level: 75 },
+  "Languages": [
+    { name: "Dart (Flutter)", icon: MdDevices, level: 95 },
+    { name: "JS/TS (Node.js, React)", icon: MdOutlineJavascript, level: 90 },
+    { name: "Python", icon: MdOutlineLeaderboard, level: 85 },
+    { name: "Kotlin", icon: MdAndroid, level: 80 },
+    { name: "Java (J2EE)", icon: MdDeveloperMode, level: 75 }
   ],
-  Databases: [
-    { name: "MySQL", icon: MdStorage, level: 80 },
-    { name: "MongoDB", icon: MdOutlineLeaderboard, level: 75 },
+  "State Management": [
+    { name: "Getx", icon: MdBuild, level: 90 },
+    { name: "Riverpod", icon: MdBuild, level: 85 },
+    { name: "BloC", icon: MdBuild, level: 85 }
   ],
-  "Development Tools": [
-    { name: "Git/GitHub", icon: MdCloud, level: 90 },
-    { name: "Android Studio", icon: MdAndroid, level: 90 },
-    { name: "Flutterflow", icon: MdBuild, level: 80 },
-    { name: "AWS", icon: MdCloud, level: 65 },
-    { name: "JIRA", icon: MdOutlineLeaderboard, level: 80 },
+  "Frameworks": [
+    { name: "MERN Stack", icon: MdStorage, level: 90 },
+    { name: "Django", icon: MdCloud, level: 80 },
+    { name: "FastAPI", icon: MdCloud, level: 80 }
   ],
+  "Databases": [
+    { name: "MySQL", icon: MdStorage, level: 85 },
+    { name: "MongoDB", icon: MdStorage, level: 85 }
+  ],
+  "Tools": [
+    { name: "Docker", icon: MdBuild, level: 85 },
+    { name: "AWS (EC2, EKS, S3)", icon: MdCloud, level: 80 },
+    { name: "Flutterflow", icon: MdDevices, level: 90 },
+    { name: "JIRA", icon: MdOutlineLeaderboard, level: 90 }
+  ]
 };
 
 const Skills = () => {
+  const [activeTab, setActiveTab] = useState(0);
+  const categories = Object.keys(skills);
+
+  const handleTabChange = (event, newValue) => {
+    setActiveTab(newValue);
+  };
+
   return (
     <Box
       id="skills"
@@ -319,7 +353,7 @@ const Skills = () => {
           viewport={{ once: true }}
         >
           <Typography
-            variant="h2"
+            variant="h3"
             sx={{
               mb: 6,
               color: "text.primary",
@@ -338,85 +372,107 @@ const Skills = () => {
             Skills
           </Typography>
 
-          {Object.entries(skills).map(([category, skillsArray]) => (
-            <Box key={category} sx={{ mb: 6 }}>
-              <Typography
-                variant="h4"
-                sx={{
-                  mb: 3,
-                  color: "text.primary",
-                  borderBottom: "2px solid",
-                  borderColor: "primary.main",
-                  pb: 1,
-                }}
+          <Box sx={{ mb: 6, display: "flex", justifyContent: "center" }}>
+            <Tabs
+              value={activeTab}
+              onChange={handleTabChange}
+              variant="scrollable"
+              scrollButtons="auto"
+              textColor="primary"
+              indicatorColor="primary"
+              sx={{
+                "& .MuiTab-root": {
+                  color: "text.secondary",
+                  fontWeight: "bold",
+                  fontSize: "1.1rem",
+                  textTransform: "none",
+                  "&.Mui-selected": {
+                    color: "primary.main",
+                  },
+                },
+              }}
+            >
+              {categories.map((category, index) => (
+                <Tab key={index} label={category} />
+              ))}
+            </Tabs>
+          </Box>
+
+          <Box sx={{ minHeight: 300 }}>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeTab}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5 }}
               >
-                {category}
-              </Typography>
-              <Grid container spacing={4}>
-                {skillsArray.map((skill, index) => (
-                  <Grid item xs={6} sm={4} md={3} key={skill.name}>
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                    >
-                      <Paper
-                        elevation={3}
-                        sx={{
-                          p: 3,
-                          textAlign: "center",
-                          bgcolor: "background.paper",
-                          transition: "transform 0.3s ease-in-out",
-                          "&:hover": {
-                            transform: "translateY(-5px)",
-                          },
-                        }}
+                <Grid container spacing={4} justifyContent="center">
+                  {skills[categories[activeTab]].map((skill, index) => (
+                    <Grid item xs={6} sm={4} md={3} key={skill.name}>
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.3, delay: index * 0.1 }}
                       >
-                        <Box
-                          component={skill.icon}
+                        <Paper
+                          elevation={3}
                           sx={{
-                            fontSize: 40,
-                            color: "primary.main",
-                            mb: 2,
-                          }}
-                        />
-                        <Typography
-                          variant="h6"
-                          sx={{
-                            color: "text.primary",
-                            mb: 1,
+                            p: 3,
+                            textAlign: "center",
+                            bgcolor: "background.paper",
+                            transition: "transform 0.3s ease-in-out",
+                            "&:hover": {
+                              transform: "translateY(-5px)",
+                              boxShadow: "0 8px 24px rgba(100, 255, 218, 0.2)",
+                            },
                           }}
                         >
-                          {skill.name}
-                        </Typography>
-                        <Box
-                          sx={{
-                            width: "100%",
-                            height: 4,
-                            bgcolor: "background.default",
-                            borderRadius: 2,
-                            overflow: "hidden",
-                          }}
-                        >
-                          <motion.div
-                            initial={{ width: 0 }}
-                            whileInView={{ width: `${skill.level}%` }}
-                            transition={{ duration: 1, delay: 0.5 }}
-                            viewport={{ once: true }}
-                            style={{
-                              height: "100%",
-                              backgroundColor: "#64ffda",
+                          <Box
+                            component={skill.icon}
+                            sx={{
+                              fontSize: 40,
+                              color: "primary.main",
+                              mb: 2,
                             }}
                           />
-                        </Box>
-                      </Paper>
-                    </motion.div>
-                  </Grid>
-                ))}
-              </Grid>
-            </Box>
-          ))}
+                          <Typography
+                            variant="h6"
+                            sx={{
+                              color: "text.primary",
+                              mb: 1,
+                              fontSize: "1rem",
+                            }}
+                          >
+                            {skill.name}
+                          </Typography>
+                          <Box
+                            sx={{
+                              width: "100%",
+                              height: 4,
+                              bgcolor: "background.default",
+                              borderRadius: 2,
+                              overflow: "hidden",
+                            }}
+                          >
+                            <motion.div
+                              initial={{ width: 0 }}
+                              animate={{ width: `${skill.level}%` }}
+                              transition={{ duration: 0.8, delay: 0.2 }}
+                              style={{
+                                height: "100%",
+                                backgroundColor: "#64ffda",
+                              }}
+                            />
+                          </Box>
+                        </Paper>
+                      </motion.div>
+                    </Grid>
+                  ))}
+                </Grid>
+              </motion.div>
+            </AnimatePresence>
+          </Box>
         </motion.div>
       </Container>
     </Box>

@@ -86,10 +86,11 @@ const About = () => {
                   }}
                 >
                   I am a Fullstack App Developer with 5+ years of experience in
-                  mobile app, Web and Backend development. Currently working at
-                  Microgenesis Cadsoft, Hyderabad. I specialize in developing
-                  scalable, cross-platform applications using Flutter, Nodejs
-                  and React.
+                  mobile app, Web and Backend development. I specialize in
+                  building secure, scalable mobile ecosystems and robust web
+                  applications using the MERN stack and FastAPI. My expertise
+                  includes end-to-end product delivery, RESTful API development,
+                  and cloud deployment using Docker and AWS.
                 </Typography>
               </motion.div>
               <motion.div

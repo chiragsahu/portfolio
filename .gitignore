@@ -30,6 +30,6 @@ Thumbs.db
 *.tmp
 *.swp
 
-Chirag_Resume.pdf
+*.pdf
 chirag_resume.txt
 package-lock.json
