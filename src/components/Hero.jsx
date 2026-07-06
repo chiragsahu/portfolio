@@ -79,7 +79,7 @@ const Hero = () => {
                   color: 'text.secondary',
                 }}
               >
-                Fullstack App Developer with over 5 years of expertise in Flutter, MERN, and Python. Specialist in end-to-end product delivery, including RESTful API development and cloud deployment.
+                Fullstack AI Developer with over 5 years of expertise in Flutter, MERN, and Python. Specialist in end-to-end product delivery, including RESTful API development, cloud deployment, and AI-powered solutions using Langchain and LangGraph.
               </Typography>
             </motion.div>
             <motion.div

@@ -68,7 +68,7 @@ const About = () => {
                     mb: 3,
                   }}
                 >
-                  Fullstack App Developer
+                  Fullstack AI Developer
                 </Typography>
               </motion.div>
               <motion.div
@@ -85,12 +85,13 @@ const About = () => {
                     lineHeight: 1.8,
                   }}
                 >
-                  I am a Fullstack App Developer with 5+ years of experience in
+                  I am a Fullstack AI Developer with 5+ years of experience in
                   mobile app, Web and Backend development. I specialize in
                   building secure, scalable mobile ecosystems and robust web
-                  applications using the MERN stack and FastAPI. My expertise
-                  includes end-to-end product delivery, RESTful API development,
-                  and cloud deployment using Docker and AWS.
+                  applications using the MERN stack, FastAPI, and AI solutions
+                  like Langchain and LangGraph. My expertise includes
+                  end-to-end product delivery, RESTful API development, and
+                  cloud deployment using Docker and AWS.
                 </Typography>
               </motion.div>
               <motion.div
